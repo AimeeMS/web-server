@@ -1,5 +1,5 @@
 var express = require('express');
-var port = 4000
+var port = 4000;
 var app = express();
 
 var middleware = {
@@ -8,15 +8,11 @@ var middleware = {
 		next();
 	},
 	logger: function(req,res,next) {
-		var date = new Date().toString()
+		var date = new Date().toString();
 		console.log('Request: ' + date + ' ' + req.method + ' ' + req.originalUrl);
 		next();
 	}
 };
-
-// app.get('/', function (req, res) {
-// 	res.send('Hello, Express!');
-// });
 
 // application wide middleware
 app.use(middleware.logger);
